@@ -55,7 +55,7 @@ function SaveAs({
             copy={!isNew}
             // add key to reset the component when a new resource is returned
             key={props?.resource?.pk || 'new'}
-            labelId={labelId || 'save'}
+            labelId={'saveMe'}
             onSave={(id, metadata, reload) => {
                 if (isNew) {
                     // only new resource follow the sync save
@@ -123,7 +123,7 @@ function SaveAsButton({
             disabled={disabled}
             onClick={() => onClick([ resource ])}
         >
-            <Message msgId="saveAs"/>
+            <Message msgId="saveAsMe"/>
         </Button>
     );
 }
