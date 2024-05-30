@@ -51,7 +51,7 @@ function SaveAs({
     return (
         <SaveModal
             {...props}
-            hideDescription={false} //!isNew
+            hideDescription={!isNew}
             copy={!isNew}
             // add key to reset the component when a new resource is returned
             key={props?.resource?.pk || 'new'}
