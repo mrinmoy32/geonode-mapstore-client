@@ -837,9 +837,6 @@
                 "name": "DeleteResource"
             },
             {
-                "name": "Example"
-            },
-            {
                 "name": "DownloadResource"
             },
             {
@@ -1811,9 +1808,6 @@
             },
             {
                 "name": "Measure"
-            },
-            {
-                "name": "Example"
             },
             {
                 "name": "FullScreen"

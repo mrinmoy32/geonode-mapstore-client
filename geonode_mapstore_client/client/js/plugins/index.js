@@ -252,10 +252,6 @@ export const plugins = {
         'Center',
         () => import(/* webpackChunkName: 'plugins/print-plugin' */ '@mapstore/framework/plugins/Center'),
     ),
-    ExamplePlugin: toModulePlugin(
-        'Example',
-        () => import(/* webpackChunkName: 'plugins/example-plugin' */ '@mapstore/framework/plugins/Example')
-    ),
     PrintTextInputPlugin: toModulePlugin(
         'PrintTextInput',
         () => import(/* webpackChunkName: 'plugins/print-text-input-plugin' */ '@mapstore/framework/plugins/print/TextInput')
