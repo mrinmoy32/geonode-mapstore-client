@@ -280,6 +280,15 @@
       ]
     },
     {
+      "name": "Center",
+      "glyph": "record",
+      "title": "plugins.Center.title",
+      "description": "plugins.Center.description",
+      "dependencies": [
+        "MapFooter"
+      ]
+    },
+    {
       "name": "MousePosition",
       "glyph": "mouse",
       "title": "plugins.MousePosition.title",

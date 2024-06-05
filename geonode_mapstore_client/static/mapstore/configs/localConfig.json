@@ -837,6 +837,9 @@
                 "name": "DeleteResource"
             },
             {
+                "name": "Example"
+            },
+            {
                 "name": "DownloadResource"
             },
             {
@@ -903,6 +906,29 @@
             },
             {
                 "name": "Print",
+                "cfg": {
+                    "useFixedScales": true,
+                    "mapWidth": 256,
+                    "outputFormatOptions": {
+                        "allowedFormats": [
+                            {
+                                "value": "pdf",
+                                "name": "PDF"
+                            },
+                            {
+                                "value": "png",
+                                "name": "PNG"
+                            },
+                            {
+                                "value": "jpg",
+                                "name": "JPEG"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "Center",
                 "cfg": {
                     "useFixedScales": true,
                     "mapWidth": 256,
@@ -1787,10 +1813,36 @@
                 "name": "Measure"
             },
             {
+                "name": "Example"
+            },
+            {
                 "name": "FullScreen"
             },
             {
                 "name": "Print",
+                "cfg": {
+                    "useFixedScales": true,
+                    "mapWidth": 256,
+                    "outputFormatOptions": {
+                        "allowedFormats": [
+                            {
+                                "value": "pdf",
+                                "name": "PDF"
+                            },
+                            {
+                                "value": "png",
+                                "name": "PNG"
+                            },
+                            {
+                                "value": "jpg",
+                                "name": "JPEG"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "Center",
                 "cfg": {
                     "useFixedScales": true,
                     "mapWidth": 256,
