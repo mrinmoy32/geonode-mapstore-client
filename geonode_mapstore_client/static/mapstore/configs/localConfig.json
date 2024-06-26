@@ -1859,6 +1859,9 @@
                 }
             },
             {
+                "name": "Legend"
+            },
+            {
                 "name": "PrintScale",
                 "override": {
                     "Print": {
