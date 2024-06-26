@@ -31,11 +31,11 @@ function Legend({
     currentZoomLvl,
     scales,
     language,
-    currentLocale
+    currentLocale,
+    resolution
 }) {
 
     const [expandLegend, setExpandLegend] = useState(false);
-
     const expand = () => {
         setExpandLegend(ex => !ex);
     };
@@ -45,7 +45,7 @@ function Legend({
     }
 
     return (
-        <div className="shadow gn-legend-wrapper" style={{ position: 'absolute', margin: 4, width: 'auto', zIndex: 50 }}>
+        <div className="shadow gn-legend-wrapper" style={{ position: 'absolute', margin: 4, width: 'auto', zIndex: 110, right: '90px', bottom: '31px' }}>
             <div onClick={expand} className="gn-legend-head" style={{ padding: '4px 8px', fontSize: '0.75rem' }}>
                 <span role="button" className={`identify-icon glyphicon glyphicon-${expandLegend ? 'bottom' : 'next'}`} title="Expand layer legend" />
                 <span className="gn-legend-list-item" style={{ paddingLeft: 4 }}><Message msgId="gnviewer.legend" /></span>
@@ -60,13 +60,14 @@ function Legend({
                     config={{
                         sortable: false,
                         showFullTitle: true,
-                        hideOpacitySlider: false,
-                        hideVisibilityButton: false,
+                        hideOpacitySlider: true,
+                        hideVisibilityButton: true,
                         expanded: true,
                         language,
                         currentLocale,
                         scales,
-                        zoom: currentZoomLvl
+                        zoom: currentZoomLvl,
+                        resolution
                     }}
                     onChangeMap={(newMap) => {
                         newMap.layers.forEach(layer => {
@@ -90,14 +91,18 @@ const ConnectedLegend = connect(
         currentLocaleLanguageSelector,
         isLocalizedLayerStylesEnabledSelector
     ], (layers, map, currentLocale, currentLocaleLanguage, isLocalizedLayerStylesEnabled) => ({
-        layers: layers.filter(layer => layer.group !== 'background' && layer.type === 'wms'),
+        // layers: layers.filter(layer => layer.group !== 'background' && layer.type === 'wms'),
+        // Removed the layer filter to handle other map services as well
+        layers,
         currentZoomLvl: map?.zoom,
         scales: getScales(
             map && map.projection || 'EPSG:3857',
             map && map.mapOptions && map.mapOptions.view && map.mapOptions.view.DPI || null
         ),
         language: isLocalizedLayerStylesEnabled ? currentLocaleLanguage : null,
-        currentLocale
+        currentLocale,
+        resolution: map?.resolution
+        
     })),
     {
         onUpdateNode: updateNode
