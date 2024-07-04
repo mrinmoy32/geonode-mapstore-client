@@ -57,6 +57,8 @@
         let defaultLayerFormat = geoNodeSettings.DEFAULT_LAYER_FORMAT || 'image/png';
         let catalogueServices = geoNodeSettings.CATALOGUE_SERVICES || {};
         let catalogueSelectedService = geoNodeSettings.CATALOGUE_SELECTED_SERVICE || '';
+        let dashboardCatalogueServices = geoNodeSettings.DASHBOARD_CATALOGUE_SERVICES || {};
+        let dashboardCatalogueSelectedService = geoNodeSettings.DASHBOARD_CATALOGUE_SELECTED_SERVICE || '';
         let createLayer = geoNodeSettings.CREATE_LAYER || false
         let timeEnabled = geoNodeSettings.TIME_ENABLED || false;
         let allowedDocumentTypes = geoNodeSettings.ALLOWED_DOCUMENT_TYPES || [];
@@ -67,6 +69,7 @@
         let extensionsFolder = geoNodeSettings.EXTENSIONS_FOLDER_PATH;
         let supportedDatasetFileTypes = geoNodeSettings.SUPPORTED_DATASET_FILE_TYPES;
         let catalogHomeRedirectsTo = geoNodeSettings.CATALOG_HOME_REDIRECTS_TO;
+        let defaultCatalogPage = geoNodeSettings.DEFAULT_CATALOG_PAGE || "all";
         let catalogPagePath = geoNodeSettings.CATALOG_PAGE_PATH;
         let customFilters = geoNodeSettings.CUSTOM_FILTERS || {
             "my-resources": {
@@ -182,6 +185,8 @@
                 geoNodeSettings: {
                     catalogueSelectedService: catalogueSelectedService,
                     catalogueServices: catalogueServices,
+                    dashboardCatalogueServices: dashboardCatalogueServices,
+                    dashboardCatalogueSelectedService: dashboardCatalogueSelectedService,
                     createLayer: createLayer,
                     geonodeUrl: siteUrl,
                     geoserverUrl: geoServerPublicLocation,
@@ -200,6 +205,7 @@
                     },
                     staticPath: "{% static '' %}",
                     catalogHomeRedirectsTo: catalogHomeRedirectsTo,
+                    defaultCatalogPage: defaultCatalogPage,
                     catalogPagePath: catalogPagePath
                 }
             },

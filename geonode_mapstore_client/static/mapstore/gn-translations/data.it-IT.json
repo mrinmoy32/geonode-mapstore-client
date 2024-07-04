@@ -44,6 +44,7 @@
             "createDashboard": "Crea dashboard",
             "createNew": "Crea nuova",
             "addResource": "Aggiungi risorsa",
+            "new": "Nuovo",
             "about": "A proposito",
             "people": "Utenti",
             "groups": "Gruppi",
@@ -405,7 +406,8 @@
                         "linkResource": "Impossibile salvare la risorsa collegata"
                     }
                 }
-            }
+            },
+            "allResources": "All resources"
         }
     }
 }

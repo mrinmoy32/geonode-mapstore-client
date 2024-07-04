@@ -42,6 +42,7 @@
             "createDashboard": "Create dashboard",
             "createNew": "Create new",
             "addResource": "Add Resource",
+            "new": "New",
             "maps": "Maps",
             "mapviewers": "MapViewers",
             "about": "About",
@@ -403,7 +404,8 @@
                         "linkResource": "Failed to save linked resource"
                     }
                 }
-            }
+            },
+            "allResources": "All resources"
         }
     }
 }
