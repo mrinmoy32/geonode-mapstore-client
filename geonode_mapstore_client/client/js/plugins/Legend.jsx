@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 import { createPlugin } from '@mapstore/framework/utils/PluginsUtils';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-import { layersSelector } from '@mapstore/framework/selectors/layers';
+import { layersSelector, groupsSelector } from '@mapstore/framework/selectors/layers';
 import { mapSelector } from '@mapstore/framework/selectors/map';
 import { updateNode } from '@mapstore/framework/actions/layers';
 import Message from '@mapstore/framework/components/I18N/HTML';
@@ -27,6 +27,7 @@ function applyVersionParamToLegend(layer) {
 
 function Legend({
     layers,
+    groups,
     onUpdateNode,
     currentZoomLvl,
     scales,
@@ -45,7 +46,7 @@ function Legend({
     }
 
     return (
-        <div className="shadow gn-legend-wrapper" style={{ position: 'absolute', margin: 4, width: 'auto', zIndex: 110, right: '90px', bottom: '31px' }}>
+        <div className="shadow gn-legend-wrapper" style={{ position: 'absolute', margin: 4, width: 'auto', zIndex: 110, right: '90px', bottom: '31px', maxHeight: '360px', maxWidth: '330px', overflowY: 'scroll' }}>
             <div onClick={expand} className="gn-legend-head" style={{ padding: '4px 8px', fontSize: '0.75rem' }}>
                 <span role="button" className={`identify-icon glyphicon glyphicon-${expandLegend ? 'bottom' : 'next'}`} title="Expand layer legend" />
                 <span className="gn-legend-list-item" style={{ paddingLeft: 4 }}><Message msgId="gnviewer.legend" /></span>
@@ -54,7 +55,7 @@ function Legend({
                 <TOC
                     map={{
                         layers: layers.map(applyVersionParamToLegend),
-                        groups: []
+                        groups
                     }}
                     theme="legend"
                     config={{
@@ -86,14 +87,16 @@ function Legend({
 const ConnectedLegend = connect(
     createSelector([
         layersSelector,
+        groupsSelector,
         mapSelector,
         currentLocaleSelector,
         currentLocaleLanguageSelector,
         isLocalizedLayerStylesEnabledSelector
-    ], (layers, map, currentLocale, currentLocaleLanguage, isLocalizedLayerStylesEnabled) => ({
+    ], (layers, groups, map, currentLocale, currentLocaleLanguage, isLocalizedLayerStylesEnabled) => ({
         // layers: layers.filter(layer => layer.group !== 'background' && layer.type === 'wms'),
         // Removed the layer filter to handle other map services as well
         layers,
+        groups,
         currentZoomLvl: map?.zoom,
         scales: getScales(
             map && map.projection || 'EPSG:3857',
